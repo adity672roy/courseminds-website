@@ -1,38 +1,287 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  text-decoration: none;
+}
+.nav {
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.dashboard {
+  border: 1px solid white;
+  border-radius: 1rem;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.section {
+  width: 100%;
+}
+
+.search-input {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.logo {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.courses {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 10px;
+}
+.course-card {
+  border: 1px solid gray;
+  border-radius: 1rem;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.course-card:hover {
+  background-color: rgb(72, 72, 72);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.course-img {
+  width: 100%;
+  text-align: center;
+}
+.img {
+  object-fit: cover;
+  width: 100%;
+  height: 180px;
+  border-radius: 1rem;
+}
+.course-info {
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  line-height: 1.5;
+}
+.course-name {
+  font-size: 1.25rem;
+  font-family: monospace;
+  font-weight: bold;
+}
+.course-instructor,
+.course-duration {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: gray;
+}
+/* --------------------------- COURSE DETAIL ----------------------------- */
+.course-detail {
+  grid-template-columns: 8fr 5fr;
+  gap: 1rem;
+  margin: 1.5rem;
+  padding: 1rem 2rem;
+  background: rgb(255, 255, 255);
+  color: black;
+  border-radius: 1rem;
+}
+.detail-info {
+  line-height: 2;
+}
+
+.dot {
+  display: inline-block;
+  margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+}
+.detail-side {
+  align-items: center;
+  gap: 2rem;
+}
+.details {
+  margin: 1.5rem;
+}
+.heading {
+  font-size: 2.5rem;
+}
+.instructor {
+  color: gray;
+}
+
+.schedule {
+  font-size: 1.4rem;
+}
+.detail-img-wrapper {
+  text-align: center;
+  position: relative;
+}
+.detail-img {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -7rem;
+  width: 100%;
+  height: 290px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(154, 169, 158, 0.2),
+    0 6px 20px 0 rgba(23, 97, 36, 0.19);
+}
+.info {
+  width: 60%;
+  line-height: 2;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  border: 2px solid white;
+}
+
+.description,
+.prerequisites,
+.syllabus,
+.topic {
+  text-decoration: underline;
+}
+.topic {
+  padding-bottom: 5px;
+}
+.syllabus,
+.dropdown {
+  cursor: pointer;
+}
+.dropdown {
+  font-size: 1.6rem;
+  position: relative;
+  top: -0.6rem;
+  padding-left: 5px;
+}
+/* --------------------------- STUDENT DASHBOARD ----------------------------- */
+.dashboard-heading {
+  text-align: center;
+  font-size: 2rem;
+}
+.btn {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  background-color: rgb(184, 184, 184);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.btn-complete {
+  color: green;
+}
+.enrolled-student{
+  font-family:monospace;
+  font-size: 14px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 992px) {
+  .logo {
+    font-size: 2.25rem;
   }
-  to {
-    transform: rotate(360deg);
+  .account {
+    display: none;
+  }
+  .courses {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .detail-img {
+    all: unset;
+    border: 1px solid black;
+  }
+  .heading {
+    font-size: 1.75rem;
+  }
+  .info {
+    width: 100%;
+  }
+  .detail-info {
+    line-height: 1.5;
+  }
+
+  .schedule {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .course-detail {
+    display: block;
+  }
+  .detail-img-wrapper {
+    display: none;
+  }
+  .info,.course-detail{
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .input {
+    width: 80%;
+  }
+  .courses {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  .heading {
+    font-size: 1.25rem;
+  }
+
+  .schedule,
+  .description,
+  .prerequisites,
+  .syllabus {
+    font-size: 1rem;
+  }
+
+  .dropdown {
+    font-size: 1.2rem;
+    top: -9px;
+  }
+  .dashboard {
+    border-radius: 0.5rem;
+    padding: 5px;
+  }
+  .dashboard-heading {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .schedule {
+    font-size: 0.95rem;
+  }
+  .detail-side {
+    display: block;
+  }
+  .dot {
+    width: 5px;
+    height: 5px;
   }
 }
